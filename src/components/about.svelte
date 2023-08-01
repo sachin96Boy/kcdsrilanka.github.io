@@ -2,7 +2,7 @@
     import { KCD, KCDLarge } from '$icons';
 </script>
 
-<div class="flex flex-col items-center py-24">
+<div class="flex flex-col items-center py-24 p-content">
     <div class="flex flex-col xl:flex-row gap-y-12 text-center xl:text-start">
         <div class="flex-1 flex flex-col gap-10 px-3 sm:px-5 xl:px-10 2xl:px-14">
             <span class="text-5xl font-bold leading-[150%]">About KCD Sri Lanka</span>

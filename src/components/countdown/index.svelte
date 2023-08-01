@@ -16,6 +16,11 @@
             hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
             minutes = Math.floor((difference / 1000 / 60) % 60);
             seconds = Math.floor((difference / 1000) % 60);
+        } else {
+            days = 0;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
         }
     };
 
@@ -28,8 +33,8 @@
 
 </script>
 
-<div class="flex flex-row justify-center pb-24 px-6 sm:px-12">
-	<div class="w-full max-w-7xl flex justify-between items-center text-center font-bold">
+<div class="flex flex-row justify-center pb-24 p-content ">
+	<div class="w-full max-w-7xl sm:px-12 flex justify-between items-center text-center font-bold">
 		<CountdownItem value={days} label="Days" />
 		<CountdownItem value={hours} label="Hours" />
 		<CountdownItem value={minutes} label="Mins" />

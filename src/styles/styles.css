@@ -6,6 +6,9 @@
 @tailwind utilities;
 
 @layer utilities {
+	.p-content {
+		@apply px-8 sm:px-10 md:px-12 lg:px-20 xl:px-28
+	}
 	.gradient-background {
 		background: linear-gradient(0deg, #0d001b 0%, #5301a4 100%);
 	}

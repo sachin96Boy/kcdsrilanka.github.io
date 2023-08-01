@@ -4,9 +4,7 @@
 	import '$styles/styles.css';
 </script>
 
-<div
-	class="flex flex-col overflow-x-hidden min-h-screen max-w-body bg-black font-ubuntu text-white px-8 sm:px-10 md:px-12 lg:px-20 xl:px-28"
->
+<div class="flex flex-col overflow-x-hidden min-h-screen max-w-body bg-black font-ubuntu text-white">
 	<Background />
 	<div class="z-10">
 		<Header />
