@@ -1,5 +1,5 @@
 <script>
-	import { About, Hero, SponsorMarquee, Countdown, Venue } from '$components';
+	import { About, Hero, SponsorMarquee, Countdown, Venue, Speakers } from '$components';
 </script>
 
 <svelte:head>
@@ -14,6 +14,7 @@
 		<About />
 		<Countdown />
 		<Venue />
-		<div class="absolute h-full left-1/2 top-0 w-[1px] bg-white/5 xl:bg-white/10" />
+		<Speakers />
+		<div class="absolute h-full left-1/2 top-0 w-[1px] bg-white/5 xl:bg-white/10 z-[-1]" />
 	</div>
 </section>
