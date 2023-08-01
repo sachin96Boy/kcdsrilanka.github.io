@@ -1,0 +1,12 @@
+@import 'colors.css';
+@import 'animations/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.gradient-background {
+		background: linear-gradient(0deg, #0d001b 0%, #5301a4 100%);
+	}
+}
