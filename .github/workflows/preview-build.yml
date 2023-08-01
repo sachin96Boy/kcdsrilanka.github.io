@@ -19,6 +19,10 @@ jobs:
       - name: Checkout repository 🛎️
         uses: actions/checkout@v3
 
+      - name: Change router base path 🛣️
+        run: |
+          sed -i "s/paths: {},/paths: {base: '\/preview\/pr-\${{ github.event.number }}'},/" svelte.config.js
+
       - name: Build 🏗️
         uses: ./.github/actions/build
 
