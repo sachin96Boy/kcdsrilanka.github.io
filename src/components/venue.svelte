@@ -10,7 +10,7 @@
 		'h-[44px] w-[44px] sm:h-[50px] sm:w-[50px] md:h-[60px] md:w-[60px] xl:h-[70px] xl:w-[71px]';
 </script>
 
-<div class="w-full h-full relative overflow-hidden">
+<div class="w-full h-full relative z-[1] overflow-hidden">
 	<img alt="venue" src={venue} class="min-h-[500px] object-cover" />
     <div class="pointer-events-none mt-44">
         <div class="absolute bottom-0 w-[120vw] overflow-hidden rotate-[5deg] -translate-x-5 mb-40">

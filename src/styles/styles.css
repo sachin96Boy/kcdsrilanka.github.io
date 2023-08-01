@@ -5,15 +5,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.badge {
+		@apply flex flex-wrap items-center self-center xl:self-start xl:text-xl bg-badge px-5 py-2.5 rounded-[40px];
+	}
+}
+
 @layer utilities {
+	.m-section-container {
+		@apply mx-8 sm:mx-10 md:mx-12 lg:mx-20 xl:mx-28;
+	}
 	.p-section-container {
-		@apply mx-8 sm:mx-10 md:mx-12 lg:mx-20 xl:mx-28 px-8 xl:px-10 2xl:px-14;
+		@apply m-section-container px-8 xl:px-10 2xl:px-14;
 	}
 	.section-container {
 		@apply p-section-container border-x border-white/10
 	}
 	.gradient-background {
 		background: linear-gradient(0deg, #0d001b 0%, #5301a4 100%);
+	}
+	.gradient-background-dark {
+		background: linear-gradient(0deg, #000 0%, #37006C 100%);
 	}
 	.text-stroke {
 		color: white;
