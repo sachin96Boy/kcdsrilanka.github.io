@@ -4,14 +4,14 @@
 
 <div class="flex flex-col items-center py-24">
     <div class="flex flex-col xl:flex-row gap-y-12 text-center xl:text-start">
-        <div class="flex-1 flex flex-col gap-10 px-3 sm:px-5 xl:px-10">
+        <div class="flex-1 flex flex-col gap-10 px-3 sm:px-5 xl:px-10 2xl:px-14">
             <span class="text-5xl font-bold leading-[150%]">About KCD Sri Lanka</span>
             <div class="w-full shrink-0 flex justify-center xl:justify-start items-start gap-x-4">
                 <KCDLarge class="w-[48px] h-[48px]" color/>
                 <KCD class="h-[48px] w-[198px]" color/>
             </div>
         </div>
-        <div class="flex-1 flex flex-col px-3 sm:px-5 xl:px-10 font-inter text-xl text-white/50 gap-6">
+        <div class="flex-1 flex flex-col px-3 sm:px-5 xl:px-10 2xl:px-14 font-inter text-xl text-white/50 gap-6">
             <span class="">
                 Kubernetes Community Days Sri Lanka (KCD Sri Lanka) 2023 is a community-organized event, 
                 with the support of the Cloud Native Computing Foundation (CNCF),
