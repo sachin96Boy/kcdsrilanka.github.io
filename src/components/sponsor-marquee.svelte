@@ -12,7 +12,6 @@
 
 <div class="h-[96px] w-full">
     <Marquee
-        pauseOnClick={true}
         direction="right"
         class="h-full"
         speed={5 + (35 * (browser ? (window.innerWidth / 1920)  : 1))}

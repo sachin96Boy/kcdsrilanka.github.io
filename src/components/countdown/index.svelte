@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import CountdownItem from './countdown-item.svelte';
 
-    const date = new Date('2023-09-01T00:00:00.000Z');
+    const date = new Date('2023-09-09T07:00:00.000Z');
 
     let days = 0;
     let hours = 0;
