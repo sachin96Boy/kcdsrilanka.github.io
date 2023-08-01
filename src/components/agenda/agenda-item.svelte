@@ -1,4 +1,5 @@
 <script>
+	import { Subheading } from '$components/common';
 	import { Clock } from '$icons';
 	import speakers from '../speakers/data.js';
 
@@ -15,11 +16,11 @@
 			<Clock class="w-10 h-10 mr-1" />
 			{item.start} - {item.end} GMT +5:30
 		</div>
-		<span class="w-full xl:w-10/12 font-medim text-2xl xl:text-[32px] leading-[42px]"
-			>{item.topic}</span
-		>
+		<Subheading class="w-full xl:w-10/12 leading-[42px]">{item.topic}</Subheading>
 	</div>
-	<div class="flex-1 flex flex-col gap-12 border bg-card border-white/10 p-5 text-xl leading-8 text-white/70 font-inter">
+	<div
+		class="flex-1 flex flex-col gap-12 border bg-card border-white/10 p-5 text-xl leading-8 text-white/70 font-inter"
+	>
 		<span>
 			Did you ever notice your cursor is solid when you’re typing but blinking when you’re not, and
 			that is true in every text editor? There are hundreds of primitives in UI design that started
@@ -27,10 +28,10 @@
 		</span>
 		<div class="flex justify-center xl:justify-start items-center gap-4">
 			<img src={speaker.image} alt="speaker" class="rounded-full h-[68px] w-[68px]" />
-            <div class="flex flex-col items-start text-white/50">
-                <span>by &nbsp;<span class="text-purple">{speaker.name}</span></span>
-                <span>{speaker.company}</span>
-            </div>
+			<div class="flex flex-col items-start text-white/50">
+				<span>by &nbsp;<span class="text-purple">{speaker.name}</span></span>
+				<span>{speaker.company}</span>
+			</div>
 		</div>
 	</div>
 </div>

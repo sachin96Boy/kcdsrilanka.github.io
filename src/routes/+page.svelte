@@ -9,7 +9,8 @@
 		Agenda,
 		BookTickets,
 		Organizers,
-		Sponsors
+		Sponsors,
+		FAQ
 	} from '$components';
 </script>
 
@@ -29,6 +30,7 @@
 		<Agenda />
 		<BookTickets />
 		<Sponsors />
+		<FAQ />
 		<Organizers />
 		<div
 			class="absolute h-full left-1/2 top-0 w-[1px] bg-white/5 xl:bg-white/10 z-[0] pointer-events-none"

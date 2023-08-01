@@ -1,6 +1,6 @@
 <script>
 	import { KCD, KCDLarge } from '$icons';
-	import { Heading } from '$components/common';
+	import { Heading, BodyText } from '$components/common';
 </script>
 
 <div class="flex flex-col items-center py-24 section-container ">
@@ -13,22 +13,22 @@
 			</div>
 		</div>
 		<div
-			class="flex-1 flex flex-col p-section-inner font-inter text-xl text-white/50 gap-6"
+			class="flex-1 flex flex-col p-section-inner gap-6"
 		>
-			<span class="">
+			<BodyText>
 				Kubernetes Community Days Sri Lanka (KCD Sri Lanka) 2023 is a community-organized event,
 				with the support of the Cloud Native Computing Foundation (CNCF), aimed at fostering the
 				growth and sustainability of the Kubernetes and cloud-native community. This remarkable
 				gathering brings together adopters and technologists from open source and cloud-native
 				communities, providing valuable opportunities for education, collaboration, and networking.
-			</span>
-			<span>
+			</BodyText>
+			<BodyText>
 				Sri Lanka comprises a growing group of Cloud Native enthusiasts, students, professionals,
 				and technology leaders. KCD Sri Lanka serves as a platform for this community to come
 				together, connecting with other tech communities in India and neighboring countries.
 				Attendees are presented with the unique chance to experience conferences like KubeCon /
 				CloudNativeCon alongside the rich cultural heritage of Sri Lanka.
-			</span>
+			</BodyText>
 		</div>
 	</div>
 </div>
