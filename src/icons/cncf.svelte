@@ -1,7 +1,5 @@
 <script>
 	import { twMerge } from 'tailwind-merge';
-
-	export let className = '';
 </script>
 
 <svg
@@ -9,8 +7,8 @@
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
-	class={twMerge('h-[24px] w-[153px]', className)}
 	{...$$restProps}
+	class={twMerge('h-[24px] w-[153px]', $$restProps.class)}
 >
 	<rect x="0.888672" width="151.714" height="24" fill="url(#pattern0)" />
 	<defs>
