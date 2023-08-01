@@ -4,7 +4,7 @@
 	import agenda from './data';
 </script>
 
-<div class="flex flex-col pt-20 py-24 section-container gap-y-16">
+<div id="agenda" class="flex flex-col pt-20 py-24 section-container gap-y-16">
 	<Heading>Agenda</Heading>
 	<div class="w-full flex flex-col gap-y-16">
 		{#each agenda as item}

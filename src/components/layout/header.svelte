@@ -5,9 +5,9 @@
 	const sections = ['Speakers', 'Agenda', 'Sponsors'];
 
 	const onNavItemClick = (/** @type {string} */ path) => {
-		window.scrollTo({
-			top: (document.getElementById(path)?.offsetTop ?? 0) - 138,
-			behavior: 'smooth'
+		document.getElementById(path)?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
 		});
 	};
 </script>
