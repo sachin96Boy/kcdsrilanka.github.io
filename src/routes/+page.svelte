@@ -8,7 +8,8 @@
 		Speakers,
 		Agenda,
 		BookTickets,
-		Organizers
+		Organizers,
+		Sponsors
 	} from '$components';
 </script>
 
@@ -26,8 +27,11 @@
 		<Venue />
 		<Speakers />
 		<Agenda />
-		<BookTickets/>
+		<BookTickets />
+		<Sponsors />
 		<Organizers />
-		<div class="absolute h-full left-1/2 top-0 w-[1px] bg-white/5 xl:bg-white/10 z-[0] pointer-events-none" />
+		<div
+			class="absolute h-full left-1/2 top-0 w-[1px] bg-white/5 xl:bg-white/10 z-[0] pointer-events-none"
+		/>
 	</div>
 </section>

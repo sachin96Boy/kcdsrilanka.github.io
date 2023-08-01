@@ -19,7 +19,7 @@
 	<div class="p-section-container grid grid-cols-1 md:grid-cols-6 gap-12">
 		<div class="col-span-3 w-full md:w-1/2 flex flex-col gap-8">
 			<KCDLarge class="w-[140px] h-[140px]" />
-			<span class="font-inter text-xl text-white/60"
+			<span class="font-inter text-xl text-white/60 leading-8"
 				>Lorem ipsum dolor sit amet, consectetur ascing elit. Dictum sollicitudin diam ac lorem cras
 				tellus faMorbi dictum ut sed pellentesque gravida id tristique.</span
 			>
