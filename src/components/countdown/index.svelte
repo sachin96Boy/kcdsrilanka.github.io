@@ -33,7 +33,7 @@
 
 </script>
 
-<div class="flex flex-row justify-center pb-24 p-content ">
+<div class="flex flex-row justify-center pb-24 section-container ">
 	<div class="w-full max-w-7xl sm:px-12 flex justify-between items-center text-center font-bold">
 		<CountdownItem value={days} label="Days" />
 		<CountdownItem value={hours} label="Hours" />

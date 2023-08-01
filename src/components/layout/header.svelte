@@ -12,7 +12,7 @@
 	};
 </script>
 
-<header class="h-[90px] flex py-8 p-content justify-between">
+<header class="h-[90px] flex py-8 section-container border-none justify-between">
 	<div class="flex gap-5">
 		<KCD />
 		<CNCF />

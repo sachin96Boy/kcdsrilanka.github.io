@@ -1,4 +1,6 @@
 :root {
 	--purple: #6400c6;
 	--dark-gray: #181818;
+	--badge: rgba(100, 0, 198, 0.20);
+	--card: #0C0C0C;
 }

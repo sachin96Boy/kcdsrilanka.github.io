@@ -5,7 +5,9 @@ export default {
 		extend: {
 			colors: {
 				'purple': 'var(--purple)',
-				'dark-gray': 'var(--dark-gray)'
+				'dark-gray': 'var(--dark-gray)',
+				'badge': 'var(--badge)',
+				'card': 'var(--card)'
 			},
 			maxWidth: {
 				body: '1920px'

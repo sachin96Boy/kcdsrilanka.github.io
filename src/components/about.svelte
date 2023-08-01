@@ -3,9 +3,9 @@
 	import { Heading } from '$components/common';
 </script>
 
-<div class="flex flex-col items-center py-24 p-content">
-	<div class="flex flex-col xl:flex-row gap-y-12 text-center xl:text-start">
-		<div class="flex-1 flex flex-col gap-10 px-3 sm:px-5 xl:px-10 2xl:px-14">
+<div class="flex flex-col items-center py-24 section-container ">
+	<div class="flex flex-col xl:flex-row gap-y-12 gap-x-24 text-center xl:text-start">
+		<div class="flex-1 flex flex-col gap-10 p-section-inner">
 			<Heading>About KCD Sri Lanka</Heading>
 			<div class="w-full shrink-0 flex justify-center xl:justify-start items-start gap-x-4">
 				<KCDLarge class="w-[48px] h-[48px]" color />
@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<div
-			class="flex-1 flex flex-col px-3 sm:px-5 xl:px-10 2xl:px-14 font-inter text-xl text-white/50 gap-6"
+			class="flex-1 flex flex-col p-section-inner font-inter text-xl text-white/50 gap-6"
 		>
 			<span class="">
 				Kubernetes Community Days Sri Lanka (KCD Sri Lanka) 2023 is a community-organized event,
