@@ -1,3 +1,3 @@
-export { default as Button } from './button.svelte';
+export { default as Button } from './buttons/index.svelte';
 
 export * from './typography';

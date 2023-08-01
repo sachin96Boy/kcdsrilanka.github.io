@@ -1,5 +1,5 @@
 <script>
-	import { Heading } from '$components/common';
+	import { Button, Heading } from '$components/common';
 	import Agenda from './agenda-item.svelte';
 	import agenda from './data';
 </script>
@@ -11,4 +11,5 @@
 			<Agenda item={item} />
 		{/each}
 	</div>
+    <Button variant="secondary" class="self-center xl:self-start xl:-translate-y-20">Checkout the full agenda</Button>
 </div>
