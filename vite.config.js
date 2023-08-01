@@ -7,6 +7,7 @@ export default defineConfig({
 	base: './',
 	resolve: {
 		alias: {
+			$assets: path.resolve('./src/assets'),
 			$components: path.resolve('./src/components'),
 			$constants: path.resolve('./src/constants'),
 			$icons: path.resolve('./src/icons'),

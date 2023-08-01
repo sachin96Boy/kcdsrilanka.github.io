@@ -4,6 +4,16 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  svelte-fast-marquee@0.4.1:
+    hash: 5lqce7wetrwptearh5c3m2knwa
+    path: patches/svelte-fast-marquee@0.4.1.patch
+
+dependencies:
+  svelte-fast-marquee:
+    specifier: 0.4.1
+    version: 0.4.1(patch_hash=5lqce7wetrwptearh5c3m2knwa)
+
 devDependencies:
   '@commitlint/cli':
     specifier: 17.6.5
@@ -2762,6 +2772,11 @@ packages:
       postcss-scss: 4.0.6(postcss@8.4.27)
       svelte: 4.0.5
     dev: true
+
+  /svelte-fast-marquee@0.4.1(patch_hash=5lqce7wetrwptearh5c3m2knwa):
+    resolution: {integrity: sha512-M5fqQlFZZugoUQo6mOrer0QSe+XTmJnX4x+06x6S07Wlvy0dA8P9xjajPv8QymJgTCMVGHiv2KN16MgIp6JU/g==}
+    dev: false
+    patched: true
 
   /svelte-hmr@0.15.2(svelte@4.0.5):
     resolution: {integrity: sha512-q/bAruCvFLwvNbeE1x3n37TYFb3mTBJ6TrCq6p2CoFbSTNhDE9oAtEfpy+wmc9So8AG0Tja+X0/mJzX9tSfvIg==}
