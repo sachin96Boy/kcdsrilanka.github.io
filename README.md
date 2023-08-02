@@ -10,11 +10,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Made_by_the_KCD_SL_Team-blue">
-  <a aria-label="License" href="https://github.com/kcdsrilanka/web/blob/main/LICENSE">
+  <a aria-label="License" href="https://github.com/kcdsrilanka/kcdsrilanka.github.io/blob/main/LICENSE">
     <img alt="" src="https://img.shields.io/badge/License-MIT-yellow.svg">
   </a>
-  <a aria-label="CI Deploy" href="https://github.com/kcdsrilanka/web/actions/workflows/prod-deploy.yml">
-    <img alt="" src="https://github.com/kcdsrilanka/web/actions/workflows/prod-deploy.yml/badge.svg">
+  <a aria-label="CI Deploy" href="https://github.com/kcdsrilanka/kcdsrilanka.github.io/actions/workflows/prod-deploy.yml">
+    <img alt="" src="https://github.com/kcdsrilanka/kcdsrilanka.github.io/actions/workflows/prod-deploy.yml/badge.svg">
   </a>
 </p>
 
@@ -32,7 +32,7 @@ Official website for KCDSL 2023
 ## Commit messages
 
 - We follow conventional commits during our development workflow as a good practice. More information can be found at their official [documentation](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#examples)
-- Refer the [commitlint.config.js](https://github.com/kcdsrilanka/web/blob/main/commitlint.config.cjs) file for a full list of supported commit message prefixes
+- Refer the [commitlint.config.js](https://github.com/kcdsrilanka/kcdsrilanka.github.io/blob/main/commitlint.config.cjs) file for a full list of supported commit message prefixes
 
 ## Additional tools
 
