@@ -14,7 +14,7 @@ jobs:
 
       - name: Fix homepage CSS 🛣️
         run: |
-          sed -i "s/paths: {},/paths: {relative: false},/" svelte.config.js
+          sed -i "s/paths: {}/paths: {relative: false}/" svelte.config.js
 
       - name: Build 🏗️
         uses: ./.github/actions/build
