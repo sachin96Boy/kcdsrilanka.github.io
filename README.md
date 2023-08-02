@@ -1,38 +1,41 @@
-# create-svelte
+<br/>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<br/>
 
-## Creating a project
+<p align="center">
+  <img src="https://github.com/kcdsrilanka/web/assets/73662613/74b91d31-cad6-4877-9473-0f4dfa390cc6" width="220" alt="KCD Logo"/>
+</p>
 
-If you're seeing this, you've probably already done this step. Congrats!
+<br/>
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+<p align="center">
+  <img src="https://img.shields.io/badge/Made_by_the_KCD_SL_Team-blue">
+  <a aria-label="License" href="https://github.com/kcdsrilanka/kcdsrilanka.github.io/blob/main/LICENSE">
+    <img alt="" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  </a>
+  <a aria-label="CI Deploy" href="https://github.com/kcdsrilanka/kcdsrilanka.github.io/actions/workflows/prod-deploy.yml">
+    <img alt="" src="https://github.com/kcdsrilanka/kcdsrilanka.github.io/actions/workflows/prod-deploy.yml/badge.svg">
+  </a>
+</p>
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+<br/>
 
-## Developing
+Official website for KCDSL 2023
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## [Figma](https://www.figma.com/file/LB8brHuMrs5rcJVOcHxyOQ/K8s-Day-Sri-Lanka-23?type=design&node-id=1-3132&mode=design&t=Gxd0eD8jHpt9Nv8k-0)
 
-```bash
-npm run dev
+## Getting started
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- Run `pnpm install` to install all dependencies
+- Run `pnpm dev` to start the development server
 
-## Building
+## Commit messages
 
-To create a production version of your app:
+- We follow conventional commits during our development workflow as a good practice. More information can be found at their official [documentation](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#examples)
+- Refer the [commitlint.config.js](https://github.com/kcdsrilanka/kcdsrilanka.github.io/blob/main/commitlint.config.cjs) file for a full list of supported commit message prefixes
 
-```bash
-npm run build
-```
+## Additional tools
 
-You can preview the production build with `npm run preview`.
+- This project is bootstrapped with [Lefthook](https://evilmartians.com/opensource/lefthook), [Eslint](https://eslint.org/) and [Prettier](https://prettier.io/). Please make good use of them.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<br/>
