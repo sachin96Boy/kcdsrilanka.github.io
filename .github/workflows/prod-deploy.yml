@@ -12,12 +12,11 @@ jobs:
       - name: Checkout repository 🛎️
         uses: actions/checkout@v3
 
-      - name: Fix homepage CSS 🛣️
-        run: |
-          sed -i "s/paths: {}/paths: {relative: false}/" svelte.config.js
-
       - name: Build 🏗️
         uses: ./.github/actions/build
+
+      - name: Create .nojekyll file 🚧
+        run: touch ./dist/.nojekyll
 
       - name: Fix 404 on page reload 🚧
         uses: sliit-foss/actions/preview-deployments/404@main
