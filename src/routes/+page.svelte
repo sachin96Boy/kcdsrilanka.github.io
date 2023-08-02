@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>KCD | 2023</title>
+	<title>KCDSL | 2023</title>
 	<meta name="description" content="Kubernetes Community Days Sri Lanka 2023" />
 </svelte:head>
 
