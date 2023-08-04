@@ -7,16 +7,16 @@
 	<div class="section-container flex flex-col xl:flex-row p-20 gap-y-12 gap-x-24">
 		<div class="flex-1 flex flex-col bg-black/20 border border-white/10 p-10 gap-6">
 			<Heading>Book your ticket now</Heading>
-			<div class="badge">
-				<Clock class="w-10 h-10 mr-1" />
+			<div class="w-full md:w-auto badge">
+				<Clock class="clock mr-1" />
 				9th September 2023
 			</div>
-			<div class="badge">
-				<Clock class="w-10 h-10 mr-1" />
+			<div class="w-full md:w-auto badge">
+				<Clock class="clock mr-1" />
 				Trace Expert City, Colombo
 			</div>
-			<div class="badge">
-				<Clock class="w-10 h-10 mr-1" />
+			<div class="w-full md:w-auto badge">
+				<Clock class="clock mr-1" />
 				12:00PM Onwards
 			</div>
 		</div>

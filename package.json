@@ -12,7 +12,11 @@
 		"prepare": "lefthook install"
 	},
 	"dependencies": {
-		"svelte-fast-marquee": "0.4.1"
+		"axios": "1.4.0",
+		"firebase": "10.1.0",
+		"lodash": "4.17.21",
+		"svelte-fast-marquee": "0.4.1",
+		"svelte-french-toast": "1.2.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.6.5",

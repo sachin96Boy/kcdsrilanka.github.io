@@ -7,16 +7,19 @@
 
 @layer components {
 	.badge {
-		@apply flex flex-wrap items-center self-center xl:self-start xl:text-xl bg-badge px-5 py-2.5 rounded-[40px];
+		@apply flex flex-wrap gap-y-1 justify-center md:justify-start items-center self-center xl:self-start text-base md:xl:text-xl  text-center md:text-start bg-badge px-5 py-2.5 rounded-[40px];
+	}
+	.clock {
+		@apply !w-8 !h-8 md:!w-10 md:!h-10;
 	}
 }
 
 @layer utilities {
 	.m-section-container {
-		@apply mx-8 sm:mx-10 md:mx-12 lg:mx-20 xl:mx-28;
+		@apply mx-4 sm:mx-10 md:mx-12 lg:mx-20 xl:mx-28;
 	}
 	.p-section-container {
-		@apply m-section-container px-8 xl:px-10 2xl:px-14;
+		@apply m-section-container px-4 sm:px-8 xl:px-10 2xl:px-14;
 	}
 	.section-container {
 		@apply p-section-container border-x border-white/10
