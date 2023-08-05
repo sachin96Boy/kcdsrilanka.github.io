@@ -1,14 +1,15 @@
-import axios from './base';
+import { goto } from '$app/navigation';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { auth, googleAuthProvider } from '$services';
 import { omitBy, isEmpty } from 'lodash';
 import { user } from '$store';
+import { default as axios } from './base';
 
 export const initiateGoogleLogin = async () => {
 	await signInWithPopup(auth, googleAuthProvider);
 	const res = await getCurrentUser();
 	if (!res?.data) {
-		window.location.href = '/register';
+		goto('/register');
 	} else {
 		user.set({
 			data: res.data,
