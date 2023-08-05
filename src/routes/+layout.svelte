@@ -1,7 +1,11 @@
 <script>
-	import { Toaster } from 'svelte-french-toast';
+	import { Toast } from '@skeletonlabs/skeleton';
 	import { Background, Header, Footer } from '$components';
 	import { initStore } from '$store';
+	
+	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+	import '@skeletonlabs/skeleton/styles/skeleton.css';
+
 	import '$styles/styles.css';
 	
 	initStore();
@@ -17,6 +21,6 @@
 			<slot />
 		</main>
 		<Footer />
-		<Toaster />
+		<Toast position="br" />
 	</div>
 </div>

@@ -16,19 +16,19 @@
 
 @layer utilities {
 	.m-section-container {
-		@apply mx-4 sm:mx-10 md:mx-12 lg:mx-20 xl:mx-28;
+		@apply mx-4 sm:mx-10 md:mx-12 lg:mx-16 xl-high:mx-28;
 	}
 	.p-section-container {
 		@apply m-section-container px-4 sm:px-8 xl:px-10 2xl:px-14;
 	}
 	.section-container {
-		@apply p-section-container border-x border-white/10
+		@apply p-section-container border-x border-white/10;
 	}
 	.gradient-background {
 		background: linear-gradient(0deg, #0d001b 0%, #5301a4 100%);
 	}
 	.gradient-background-dark {
-		background: linear-gradient(0deg, #000 0%, #37006C 100%);
+		background: linear-gradient(0deg, #000 0%, #37006c 100%);
 	}
 	.text-stroke {
 		color: white;
@@ -43,23 +43,24 @@
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+	width: 12px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: black;
+	background: black !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+	background: white !important;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
 }
 
 html {
-  scrollbar-color: black white;
-  scrollbar-width: thin;
+	scrollbar-color: black white !important;
+	scrollbar-width: thin !important;
 }
 
-svg, svg *:focus {
-  outline: none !important;
+svg,
+svg *:focus {
+	outline: none !important;
 }

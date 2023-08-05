@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { default as toast } from 'svelte-french-toast';
+import { toast } from '$utils';
 import { PUBLIC_SERVER_URL } from '$env/static/public';
 import { auth } from '$services';
 

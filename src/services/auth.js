@@ -2,13 +2,18 @@ import axios from './base';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { auth, googleAuthProvider } from '$services';
 import { omitBy, isEmpty } from 'lodash';
-import { userContext } from '$store';
+import { user } from '$store';
 
 export const initiateGoogleLogin = async () => {
 	await signInWithPopup(auth, googleAuthProvider);
 	const res = await getCurrentUser();
 	if (!res?.data) {
 		window.location.href = '/register';
+	} else {
+		user.set({
+			data: res.data,
+			fetched: true
+		});
 	}
 };
 
@@ -31,6 +36,9 @@ export const getCurrentUser = (silent = true, v = 'v1') =>
 
 export const logout = () => {
 	return signOut(auth).then(() => {
-		userContext.set(null);
+		user.set({
+			data: null,
+			fetched: false
+		});
 	});
 };

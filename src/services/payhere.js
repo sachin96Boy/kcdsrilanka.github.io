@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 import { PUBLIC_FRONTEND_URL } from '$env/static/public';
-import { default as toast } from 'svelte-french-toast';
+import { toast } from '$utils';
 import { cancelPayment, verifyPayment } from './ticket';
 
 if (browser) {

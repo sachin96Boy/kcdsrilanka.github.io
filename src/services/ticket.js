@@ -1,4 +1,4 @@
-import { default as toast } from 'svelte-french-toast';
+import { toast } from '$utils';
 import axios from './base';
 import { processPayment } from './payhere';
 
@@ -15,6 +15,9 @@ export const verifyPayment = (v = 'v1') => axios.get(`/${v}/tickets/payments/ver
 
 export const cancelPayment = (v = 'v1') => axios.patch(`/${v}/tickets/payments/cancel`);
 
-export const getTicket = (v = 'v1') => axios.get(`/${v}/tickets/current`);
+export const getTicket = (silent = true, v = 'v1') =>
+	axios.get(`/${v}/tickets/current`, {
+		silent
+	});
 
 export const transferTicket = (email, v = 'v1') => axios.patch(`/${v}/tickets/transfer`, { email });

@@ -3,7 +3,7 @@
 	import { RadioInput, Button } from '$components/common';
 	import { Input, InputLabel, InputWrapper } from '$components/register';
 	import { auth, register } from '$services';
-	import { userContext } from '$store';
+	import { user } from '$store';
 
 	$: formData = {
 		name: '',
@@ -15,20 +15,20 @@
 		profession: 'student',
 		cv: '',
 		tshirtSize: 'xxxs',
-		mealPreference: 'non_veg',
+		mealPreference: 'non_veg'
 	};
 
 	onMount(() => {
-		auth.onAuthStateChanged(async function (user) {
-			if (user != null) {
-				formData.name = user.displayName;
-				formData.email = user.email;
+		auth.onAuthStateChanged(async function (firebaseUser) {
+			if (firebaseUser != null) {
+				formData.name = firebaseUser.displayName;
+				formData.email = firebaseUser.email;
 			}
 		});
 	});
 
-	userContext.subscribe((value) => {
-		if(value) {
+	user.subscribe(({ data, fetched }) => {
+		if (fetched && !data) {
 			window.location.href = '/';
 		}
 	});
@@ -41,10 +41,9 @@
 	const onChange = (e) => {
 		formData = {
 			...formData,
-			[e.target.name]: e.target.value,
+			[e.target.name]: e.target.value
 		};
 	};
-
 </script>
 
 <svelte:head>
@@ -56,13 +55,21 @@
 	<form class="flex-1 flex flex-col p-section-container py-6 lg:py-24" on:submit={onSubmit}>
 		<section id="section-one" class="pb-10 bg-black/40 backdrop-blur-md rounded-2xl">
 			<div class="border rounded-2xl border-white/20 overflow-hidden">
-				<div class="section-header flex justify-between items-center  p-[30px] md:py-[23px] md:pl-12 bg-purple">
+				<div
+					class="section-header flex justify-between items-center p-[30px] md:py-[23px] md:pl-12 bg-purple"
+				>
 					<h2 class="font-medium text-white sm:text-2xl md:text-4xl">General</h2>
 				</div>
 				<dl id="container-one" class="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
 					<InputWrapper>
 						<InputLabel>Name *</InputLabel>
-						<Input name="name" value={formData.name} placeholder="Enter your name" required onChange={onChange} />
+						<Input
+							name="name"
+							value={formData.name}
+							placeholder="Enter your name"
+							required
+							{onChange}
+						/>
 					</InputWrapper>
 					<InputWrapper>
 						<InputLabel>Email *</InputLabel>
@@ -73,24 +80,54 @@
 							placeholder="someone@example.com"
 							required
 							disabled
-							onChange={onChange}
+							{onChange}
 						/>
 					</InputWrapper>
 					<InputWrapper>
 						<InputLabel>NIC *</InputLabel>
-						<Input name="nic" value={formData.nic} placeholder="199710031052" required onChange={onChange}/>
+						<Input name="nic" value={formData.nic} placeholder="199710031052" required {onChange} />
 					</InputWrapper>
 					<InputWrapper>
 						<InputLabel>Mobile *</InputLabel>
-						<Input name="mobile" value={formData.mobile} placeholder="0762345678" required onChange={onChange}/>
+						<Input
+							name="mobile"
+							value={formData.mobile}
+							placeholder="0762345678"
+							required
+							{onChange}
+						/>
 					</InputWrapper>
 					<div class="pt-[14px] pr-12 pb-[14px]">
 						<InputLabel>Gender *</InputLabel>
 						<dd class="mt-4 mb-[18px] md:mt-5">
 							<div class="mb-2 flex flex-col gap-4 text-lg">
-								<RadioInput id="male" name="gender" defaultValue={formData.gender} value="male" label="Male" required onChange={onChange}/>
-								<RadioInput id="female" name="gender" defaultValue={formData.gender} value="female" label="Female" required onChange={onChange}/>
-								<RadioInput id="other" name="gender" defaultValue={formData.gender} value="other" label="Other" required onChange={onChange}/>
+								<RadioInput
+									id="male"
+									name="gender"
+									defaultValue={formData.gender}
+									value="male"
+									label="Male"
+									required
+									{onChange}
+								/>
+								<RadioInput
+									id="female"
+									name="gender"
+									defaultValue={formData.gender}
+									value="female"
+									label="Female"
+									required
+									{onChange}
+								/>
+								<RadioInput
+									id="other"
+									name="gender"
+									defaultValue={formData.gender}
+									value="other"
+									label="Other"
+									required
+									{onChange}
+								/>
 								<RadioInput
 									id="not-to-say"
 									name="gender"
@@ -98,7 +135,7 @@
 									value="null"
 									label="Prefer not to say"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 							</div>
 						</dd>
@@ -125,7 +162,7 @@
 									value="student"
 									label="School / High School Student"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 								<RadioInput
 									id="uni-student"
@@ -134,7 +171,7 @@
 									value="university_student"
 									label="Undergraduate / Post graduate Student"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 								<RadioInput
 									id="employee"
@@ -143,7 +180,7 @@
 									value="employed"
 									label="Employed"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 							</div>
 						</dd>
@@ -165,7 +202,7 @@
 										? 'The Company Inc.'
 										: 'XYZ Institute'}
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 							</div>
 						</dd>
@@ -174,7 +211,12 @@
 						<InputLabel>LinkedIn Username</InputLabel>
 						<dd class="mt-4 mb-[18px] md:mt-5">
 							<div class="mb-2">
-								<Input name="linkedInUsername" value={formData.linkedInUsername} placeholder="john-doe-123456789" onChange={onChange}/>
+								<Input
+									name="linkedInUsername"
+									value={formData.linkedInUsername}
+									placeholder="john-doe-123456789"
+									{onChange}
+								/>
 							</div>
 						</dd>
 					</InputWrapper>
@@ -182,7 +224,12 @@
 						<InputLabel>GitHub Username</InputLabel>
 						<dd class="mt-4 mb-[18px] md:mt-5">
 							<div class="mb-2">
-								<Input name="githubUsername" value={formData.githubUsername} placeholder="john-doe-123456789" onChange={onChange}/>
+								<Input
+									name="githubUsername"
+									value={formData.githubUsername}
+									placeholder="john-doe-123456789"
+									{onChange}
+								/>
 							</div>
 						</dd>
 					</InputWrapper>
@@ -194,7 +241,7 @@
 									name="cv"
 									value={formData.cv}
 									placeholder="https://drive.google.com/file/d/1Z0NQ7eGaO3d/view"
-									onChange={onChange}
+									{onChange}
 								/>
 							</div>
 						</dd>
@@ -227,7 +274,7 @@
 									value="xxxs"
 									label="Tripple Extra small (XXXS)"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 								<RadioInput
 									id="double-extra-small"
@@ -236,7 +283,7 @@
 									value="xxs"
 									label="Double Extra small (XXS)"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 								<RadioInput
 									id="extra-small"
@@ -245,11 +292,35 @@
 									value="xs"
 									label="Extra small (XS)"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
-								<RadioInput id="small" name="tshirtSize" defaultValue={formData.tshirtSize} value="s" label="Small (S)" required onChange={onChange}/>
-								<RadioInput id="medium" name="tshirtSize" defaultValue={formData.tshirtSize} value="m" label="Medium (M)" required onChange={onChange}/>
-								<RadioInput id="large" name="tshirtSize" defaultValue={formData.tshirtSize} value="l" label="Large (L)" required onChange={onChange}/>
+								<RadioInput
+									id="small"
+									name="tshirtSize"
+									defaultValue={formData.tshirtSize}
+									value="s"
+									label="Small (S)"
+									required
+									{onChange}
+								/>
+								<RadioInput
+									id="medium"
+									name="tshirtSize"
+									defaultValue={formData.tshirtSize}
+									value="m"
+									label="Medium (M)"
+									required
+									{onChange}
+								/>
+								<RadioInput
+									id="large"
+									name="tshirtSize"
+									defaultValue={formData.tshirtSize}
+									value="l"
+									label="Large (L)"
+									required
+									{onChange}
+								/>
 								<RadioInput
 									id="extra-large"
 									name="tshirtSize"
@@ -257,7 +328,7 @@
 									value="xl"
 									label="Extra large (XL)"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 								<RadioInput
 									id="double-extra-large"
@@ -266,7 +337,7 @@
 									value="xxl"
 									label="Double extra large (XXL)"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 								<RadioInput
 									id="tripple-extra-large"
@@ -275,7 +346,7 @@
 									value="xxxl"
 									label="Tripple extra large (XXXL)"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 							</div>
 							<div class="mb-2 pt-2">
@@ -294,7 +365,7 @@
 									value="non_veg"
 									label="Non Vegetarian 🥩"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 								<RadioInput
 									id="veg"
@@ -303,7 +374,7 @@
 									value="veg"
 									label="Vegetarian 🌿"
 									required
-									onChange={onChange}
+									{onChange}
 								/>
 							</div>
 						</dd>

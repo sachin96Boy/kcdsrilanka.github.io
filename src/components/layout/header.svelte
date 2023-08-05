@@ -1,10 +1,13 @@
 <script>
+	import { getContext } from 'svelte';
 	import { browser } from '$app/environment';
-	import { Button } from '$components/common';
+	import { Button, Skeleton } from '$components/common';
 	import { CNCF, KCD } from '$icons';
-	import { auth, getCurrentUser, initiateGoogleLogin, initiatePayment, logout } from '$services';
-	import { userContext } from '$store';
-	import { getContext, onMount } from 'svelte';
+	import {
+		initiateGoogleLogin,
+		initiatePayment,
+		logout
+	} from '$services';
 
 	const sections = ['Speakers', 'Agenda', 'Sponsors'];
 
@@ -18,15 +21,7 @@
 	};
 
 	const registeredUser = getContext('user');
-
-	onMount(() => {
-		auth.onAuthStateChanged(async function (user) {
-			if (user != null) {
-				const result = await getCurrentUser();
-				if (result) userContext.set(result.data);
-			}
-		});
-	});
+	const ticketDetails = getContext('ticket');
 </script>
 
 <header class="h-[90px] flex py-8 section-container border-none justify-between">
@@ -35,7 +30,7 @@
 		<CNCF />
 	</div>
 	<div
-		class="hidden xl:flex justify-center items-center gap-x-8 cursor-pointer"
+		class="hidden xl-high:flex justify-center items-center gap-x-8 cursor-pointer"
 		data-sveltekit-reload
 	>
 		<span class="text-xl text-white"> #KCDSL23 </span>
@@ -52,19 +47,28 @@
 					{section}
 				</button>
 			{/each}
-			<Button class="px-5" onClick={()=>initiatePayment($registeredUser)}>Buy Tickets</Button>
-			{#if $registeredUser}
-				<Button
-					variant="secondary"
-					class="outline-white/80 text-white px-8 min-w-[150px]"
-					onClick={logout}>Logout</Button
-				>
+			{#if !$ticketDetails?.fetched || !$registeredUser?.fetched}
+				<Skeleton height="40" width="146.7" class="flex justify-center items-center rounded-full"/>
+				<Skeleton height="40" width="146.7" class="flex justify-center items-center rounded-full"/>
 			{:else}
-				<Button
-					variant="secondary"
-					class="outline-white/80 text-white px-8 min-w-[150px]"
-					onClick={initiateGoogleLogin}>Login</Button
-				>
+				{#if !$ticketDetails?.data}
+					<Button class="px-5 animate-in fade-in duration-700" onClick={() => initiatePayment($registeredUser?.data)}
+						>Buy Tickets</Button
+					>
+				{/if}
+				{#if $registeredUser?.data}
+					<Button
+						variant="secondary"
+						class="outline-white/80 text-white px-8 min-w-[150px] animate-in fade-in duration-700"
+						onClick={logout}>Logout</Button
+					>
+				{:else}
+					<Button
+						variant="secondary"
+						class="outline-white/80 text-white px-8 min-w-[150px] animate-in fade-in duration-700"
+						onClick={initiateGoogleLogin}>Login</Button
+					>
+				{/if}
 			{/if}
 		{/if}
 	</div>
