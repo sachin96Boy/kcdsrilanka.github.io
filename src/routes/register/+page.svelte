@@ -1,11 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
 	import { DropdownInput, Input, Button, BodyText, Subheading, Heading } from '$components/common';
 	import { Hero, SponsorMarquee } from '$components/landing';
 	import { auth, register } from '$services';
 	import { loader, user, config } from '$store';
-	import { modal } from '$utils';
+	import { modal, goto } from '$utils';
 
 	import tshirt from '$assets/images/merch/tshirt.png';
 	
