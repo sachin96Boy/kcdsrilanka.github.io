@@ -2,8 +2,10 @@
 	import { getContext } from 'svelte';
 	import { Button, Heading } from '$components/common';
 	import { Clock, Ticket } from '$icons';
+	import { initiatePayment } from '$services';
 	
 	const ticketDetails = getContext('ticket');
+	const registeredUser = getContext('user');
 </script>
 
 <div id="book-tickets" class="h-full w-full gradient-background-dark relative z-[0]">
@@ -34,7 +36,7 @@
 					<div class="badge px-5 py-1.5 text-base">Pre sale</div>
 				</div>
 				{#if $ticketDetails?.data?.paymentStatus !== "success"}
-					<Button variant="secondary" class="mt-12">Buy Now</Button>
+					<Button variant="secondary" class="mt-12" onClick={() => initiatePayment($registeredUser?.data)}>Buy Now</Button>
 				{:else}
 					<Button variant="secondary" class="mt-12 pointer-events-none" disabled="true">Already Purchased</Button>
 				{/if}

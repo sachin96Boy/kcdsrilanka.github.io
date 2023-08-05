@@ -250,7 +250,7 @@ var payhere = {
 };
 function _0x30cf86(_0x21df4a) {
 	function _0x4c56f0(_0x17a5cb) {
-		var _0x146873 = () => {};
+		var _0x146873 = _0x4c68;
 		if ('qxSVT' !== _0x146873(0xcc)) _0x84ee52 = new _0x4b2d73('Microsoft.XMLHTTP');
 		else {
 			if (typeof _0x17a5cb === _0x146873(0xfe)) {
