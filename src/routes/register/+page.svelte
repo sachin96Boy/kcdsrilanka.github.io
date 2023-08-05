@@ -4,10 +4,10 @@
 	import { Hero, SponsorMarquee } from '$components/landing';
 	import { auth, register } from '$services';
 	import { loader, user, config } from '$store';
-	import { modal } from '$utils';
+	import { modal, goto } from '$utils';
 
 	import tshirt from '$assets/images/merch/tshirt.png';
-
+	
 	$: formData = {
 		name: '',
 		email: '',
@@ -32,7 +32,7 @@
 	user.subscribe(({ data, fetched }) => {
 		if (fetched) {
 			if (data) {
-				window.location.href = '/';
+				goto("/")
 			} else {
 				document.getElementById('register-section')?.scrollIntoView({
 					behavior: 'smooth',
@@ -47,7 +47,7 @@
 			modal.show({
 				title: 'Registration closed!',
 				body: 'Sorry, we are not accepting any more registrations for KCDSL 2023.',
-				onClose: () => (window.location.href = '/')
+				onClose: () => goto("/")
 			});
 		}
 	});
@@ -62,7 +62,7 @@
 					title: 'You have successfully registered!',
 					body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod quis viverra nibh cras pulvinar mattis nunc.',
 					actionText: 'Purchase Ticket',
-					onClose: () => (window.location.href = '/?scroll=book-tickets')
+					onClose: () => goto("/?scroll=book-tickets")
 				});
 		});
 	};
