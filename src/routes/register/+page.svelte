@@ -3,7 +3,7 @@
 	import { DropdownInput, Input, Button, BodyText, Subheading, Heading } from '$components/common';
 	import { Hero, SponsorMarquee } from '$components/landing';
 	import { auth, register } from '$services';
-	import { loader, user } from '$store';
+	import { loader, user, config } from '$store';
 	import { modal } from '$utils';
 
 	$: formData = {
@@ -40,18 +40,28 @@
 		}
 	});
 
+	config.subscribe(({ REGISTRATION_ENABLED }) => {
+		if (REGISTRATION_ENABLED === false) {
+			modal.show({
+				title: 'Registration closed!',
+				body: 'Sorry, we are not accepting any more registrations for KCDSL 2023.',
+				onClose: () => (window.location.href = '/')
+			});
+		}
+	});
+
 	const onSubmit = (e) => {
 		e.preventDefault();
 		loader.set({ show: true });
 		register(formData).then((res) => {
 			loader.set({ show: false });
 			if (res)
-				modal.show(
-					'You have successfully registered!',
-					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod quis viverra nibh cras pulvinar mattis nunc.',
-					'Purchase Ticket',
-					() => (window.location.href = '/?scroll=book-tickets')
-				);
+				modal.show({
+					title: 'You have successfully registered!',
+					body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod quis viverra nibh cras pulvinar mattis nunc.',
+					actionText: 'Purchase Ticket',
+					onClose: () => (window.location.href = '/?scroll=book-tickets')
+				});
 		});
 	};
 

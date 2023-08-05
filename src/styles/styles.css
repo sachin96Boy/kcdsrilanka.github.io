@@ -81,7 +81,7 @@ svg *:focus {
 }
 
 .ph-loader, .ph-backdrop {
-	display: none;
+	display: none !important;
 }
 
 .modal-backdrop {

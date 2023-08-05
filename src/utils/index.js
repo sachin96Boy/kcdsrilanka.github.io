@@ -16,12 +16,12 @@ export const toast = {
 };
 
 export const modal = {
-	show: (title, body, btnText, onClose) => {
+	show: ({ title, body, actionText, onClose }) => {
 		modalStore.trigger({
-			type: 'confirm',
+			type: actionText ? 'confirm' : 'alert',
 			title: title,
 			body: body,
-			buttonTextConfirm: btnText,
+			buttonTextConfirm: actionText,
 			response: () => {
 				setTimeout(() => {
 					if (onClose) onClose();
