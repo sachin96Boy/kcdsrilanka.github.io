@@ -1,7 +1,6 @@
 import { browser } from '$app/environment';
 import { PUBLIC_FRONTEND_URL } from '$env/static/public';
 import { loader, ticket } from '$store';
-import { toast } from '$utils';
 import { cancelPayment, verifyPayment } from './ticket';
 
 if (browser && window.payhere) {
@@ -11,9 +10,6 @@ if (browser && window.payhere) {
 			loader.set({ show: false });
 			if (res?.data && res.data?.paymentStatus === 'success') {
 				ticket.set({ data: res.data, fetched: true });
-				toast.success('Payment successful');
-			} else {
-				toast.error('Payment failed');
 			}
 		});
 	};
