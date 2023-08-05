@@ -15,7 +15,10 @@ ticket.set({
 	fetched: false
 });
 
-loader.set(false);
+loader.set({
+	show: false,
+	text: ''
+});
 
 export const initStore = () => {
 	setContext('user', user);

@@ -4,7 +4,7 @@ export const toast = {
 	success: (message) => {
 		toastStore.trigger({
 			message,
-			background: 'bg-gradient-to-br variant-gradient-tertiary-primary backdrop-blur-sm'
+			background: 'bg-green-500/80 backdrop-blur-sm'
 		});
 	},
 	error: (message) => {

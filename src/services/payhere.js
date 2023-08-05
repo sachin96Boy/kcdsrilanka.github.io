@@ -1,11 +1,14 @@
 import { browser } from '$app/environment';
 import { PUBLIC_FRONTEND_URL } from '$env/static/public';
+import { loader } from '$store';
 import { toast } from '$utils';
 import { cancelPayment, verifyPayment } from './ticket';
 
-if (browser) {
+if (browser && window.payhere) {
 	window.payhere.onCompleted = function onCompleted() {
+		loader.set({ show: true, text: 'Please wait...' });
 		verifyPayment().then((res) => {
+			loader.set({ show: false, text: '' });
 			if (res?.data && res.data?.paymentStatus === 'success') {
 				toast.success('Payment successful');
 			} else {

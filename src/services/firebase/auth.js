@@ -16,8 +16,8 @@ export default (app) => {
 		auth.onAuthStateChanged(async function (firebaseUser) {
 			if (firebaseUser != null) {
 				const [userResult, ticketResult] = await Promise.all([getCurrentUser(), getTicket()]);
-				if (userResult) user.set({ data: userResult.data, fetched: true });
-				if (ticketResult) ticket.set({ data: ticketResult.data, fetched: true });
+				user.set({ data: userResult?.data, fetched: true });
+				ticket.set({ data: ticketResult?.data, fetched: true });
 			} else {
 				setTimeout(() => {
 					user.set({ data: null, fetched: true });

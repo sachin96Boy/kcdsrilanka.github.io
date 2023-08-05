@@ -3,7 +3,7 @@
 	import { RadioInput, Button } from '$components/common';
 	import { Input, InputLabel, InputWrapper } from '$components/register';
 	import { auth, register } from '$services';
-	import { user } from '$store';
+	import { loader, user } from '$store';
 
 	$: formData = {
 		name: '',
@@ -19,6 +19,7 @@
 	};
 
 	onMount(() => {
+		loader.set({ show: true });
 		auth.onAuthStateChanged(async function (firebaseUser) {
 			if (firebaseUser != null) {
 				formData.name = firebaseUser.displayName;
@@ -28,8 +29,11 @@
 	});
 
 	user.subscribe(({ data, fetched }) => {
-		if (fetched && !data) {
-			window.location.href = '/';
+		if (fetched) {
+			loader.set({ show: false });
+			if (data) {
+				window.location.href = '/';
+			}
 		}
 	});
 

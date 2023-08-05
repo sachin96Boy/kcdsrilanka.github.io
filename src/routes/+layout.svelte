@@ -1,13 +1,13 @@
 <script>
 	import { Toast } from '@skeletonlabs/skeleton';
-	import { Background, Header, Footer } from '$components';
+	import { Background, Header, Footer, Loader } from '$components';
 	import { initStore } from '$store';
-	
+
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 
 	import '$styles/styles.css';
-	
+
 	initStore();
 </script>
 
@@ -21,6 +21,7 @@
 			<slot />
 		</main>
 		<Footer />
-		<Toast position="br" />
+		<Loader />
+		<Toast position="br"  />
 	</div>
 </div>

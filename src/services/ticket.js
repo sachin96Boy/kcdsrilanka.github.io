@@ -1,11 +1,13 @@
+import { loader } from '$store';
 import { toast } from '$utils';
-import axios from './base';
+import { default as axios } from './base';
 import { processPayment } from './payhere';
 
 export const initiatePayment = (registeredUser, v = 'v1') => {
 	if (!registeredUser) {
 		return toast.error('Please login to continue');
 	}
+	loader.set({ show: true });
 	return axios
 		.post(`/${v}/tickets/payments/initiate`)
 		.then((res) => processPayment(registeredUser, res.data));

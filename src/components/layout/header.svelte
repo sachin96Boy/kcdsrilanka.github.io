@@ -51,7 +51,7 @@
 				<Skeleton height="40" width="146.7" class="flex justify-center items-center rounded-full"/>
 				<Skeleton height="40" width="146.7" class="flex justify-center items-center rounded-full"/>
 			{:else}
-				{#if !$ticketDetails?.data}
+				{#if $ticketDetails?.data?.paymentStatus !== "success"}
 					<Button class="px-5 animate-in fade-in duration-700" onClick={() => initiatePayment($registeredUser?.data)}
 						>Buy Tickets</Button
 					>

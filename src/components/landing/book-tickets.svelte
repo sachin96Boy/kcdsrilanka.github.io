@@ -1,6 +1,9 @@
 <script>
+	import { getContext } from 'svelte';
 	import { Button, Heading } from '$components/common';
 	import { Clock, Ticket } from '$icons';
+	
+	const ticketDetails = getContext('ticket');
 </script>
 
 <div class="h-full w-full gradient-background-dark relative z-[0]">
@@ -30,7 +33,11 @@
 					</div>
 					<div class="badge px-5 py-1.5 text-base">Pre sale</div>
 				</div>
-				<Button variant="secondary" class="mt-12">Buy Now</Button>
+				{#if $ticketDetails?.data?.paymentStatus !== "success"}
+					<Button variant="secondary" class="mt-12">Buy Now</Button>
+				{:else}
+					<Button variant="secondary" class="mt-12 pointer-events-none" disabled="true">Already Purchased</Button>
+				{/if}
 			</div>
             <div class="flex-1 flex justify-center items-center">
                 <Ticket/>
