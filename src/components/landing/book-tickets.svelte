@@ -6,7 +6,7 @@
 	const ticketDetails = getContext('ticket');
 </script>
 
-<div class="h-full w-full gradient-background-dark relative z-[0]">
+<div id="book-tickets" class="h-full w-full gradient-background-dark relative z-[0]">
 	<div class="section-container flex flex-col xl:flex-row p-20 gap-y-12 gap-x-24">
 		<div class="flex-1 flex flex-col bg-black/20 border border-white/10 p-10 gap-6">
 			<Heading>Book your ticket now</Heading>

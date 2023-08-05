@@ -21,12 +21,10 @@ export const register = async (payload, v = 'v1') => {
 	payload.token = (await auth.currentUser?.getIdTokenResult(true))?.token;
 	payload.picture = auth.currentUser.photoURL;
 	if (payload.gender === 'null') delete payload.gender;
-	return axios
-		.post(
-			`/${v}/auth/register`,
-			omitBy(payload, (value) => isEmpty(value))
-		)
-		.then(() => (window.location.href = '/'));
+	return axios.post(
+		`/${v}/auth/register`,
+		omitBy(payload, (value) => isEmpty(value))
+	);
 };
 
 export const getCurrentUser = (silent = true, v = 'v1') =>

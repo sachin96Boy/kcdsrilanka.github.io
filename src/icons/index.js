@@ -1,3 +1,4 @@
+export { default as Arrow } from './arrow.svelte';
 export { default as Calendar } from './calendar.svelte';
 export { default as Clock } from './clock.svelte';
 export { default as CNCF } from './cncf.svelte';

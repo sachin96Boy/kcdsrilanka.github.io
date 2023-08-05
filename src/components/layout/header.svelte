@@ -53,7 +53,7 @@
 			{:else}
 				{#if $ticketDetails?.data?.paymentStatus !== "success"}
 					<Button class="px-5 animate-in fade-in duration-700" onClick={() => initiatePayment($registeredUser?.data)}
-						>Buy Tickets</Button
+						>Buy Ticket</Button
 					>
 				{/if}
 				{#if $registeredUser?.data}

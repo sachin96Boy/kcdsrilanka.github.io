@@ -10,7 +10,7 @@
 
 <div
 	class={twMerge(
-		'fixed w-full h-full inset-0 bg-black/30 backdrop-blur-[8px] flex justify-center items-center z-50 transition-all duration-medium',
+		'fixed w-full h-full inset-0 backdrop flex justify-center items-center z-50 transition-all duration-medium',
 		$loader.show ? 'opacity-100' : 'pointer-events-none opacity-0'
 	)}
 >
