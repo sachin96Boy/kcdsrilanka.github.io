@@ -1,8 +1,9 @@
 <script>
-	import { ProgressRadial } from '@skeletonlabs/skeleton';
+	import { ProgressBar } from '@skeletonlabs/skeleton';
 	import { Subheading } from './typography';
 	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
+	import { KCDLarge } from '$icons';
 
 	const loader = getContext('loader');
 </script>
@@ -16,7 +17,8 @@
 	<div
 		class="p-16 md:p-24 m-6 bg-black/50 backdrop-blur-md rounded-xl flex flex-col justify-center items-center gap-12"
 	>
-		<ProgressRadial ... stroke={50} meter="stroke-white" track="stroke-white/20" />
+		<KCDLarge />
+        <ProgressBar height="min-w-[180px] h-1.5" meter="bg-purple"/>
 		{#if $loader.text}
             <Subheading class="text-3xl max-w-md text-center">{$loader.text}</Subheading>
         {/if}

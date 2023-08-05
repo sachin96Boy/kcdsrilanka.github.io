@@ -1,15 +1,16 @@
 import { browser } from '$app/environment';
 import { PUBLIC_FRONTEND_URL } from '$env/static/public';
-import { loader } from '$store';
+import { loader, ticket } from '$store';
 import { toast } from '$utils';
 import { cancelPayment, verifyPayment } from './ticket';
 
 if (browser && window.payhere) {
 	window.payhere.onCompleted = function onCompleted() {
-		loader.set({ show: true, text: 'Please wait...' });
+		loader.set({ show: true });
 		verifyPayment().then((res) => {
-			loader.set({ show: false, text: '' });
+			loader.set({ show: false });
 			if (res?.data && res.data?.paymentStatus === 'success') {
+				ticket.set({ data: res.data, fetched: true });
 				toast.success('Payment successful');
 			} else {
 				toast.error('Payment failed');
@@ -18,10 +19,13 @@ if (browser && window.payhere) {
 	};
 
 	window.payhere.onDismissed = function onDismissed() {
-		cancelPayment();
+		cancelPayment().finally(() => {
+			loader.set({ show: false });
+		});
 	};
 
 	window.payhere.onError = function onError(error) {
+		loader.set({ show: false });
 		console.log('Payment Error', error);
 	};
 }
