@@ -7,6 +7,8 @@
 	const ticketDetails = getContext('ticket');
 	const registeredUser = getContext('user');
 	const config = getContext('config');
+
+	const discountPeriodExpired = Date.now() >= new Date($config?.EARLY_BIRD_DISCOUNT_PERIOD_END_DATE).getTime();
 </script>
 
 <div id="book-tickets" class="h-full w-full gradient-background-dark relative z-[0]">
@@ -30,7 +32,7 @@
 			class="flex-1 flex flex-col md:flex-row bg-black/20 border border-white/10 p-10 gap-y-12 xl:gap-x-12 2xl:gap-x-24"
 		>
 			<div class="h-full flex-1 flex flex-col justify-between items-center xl:items-start">
-				{#if Date.now() >= new Date($config?.EARLY_BIRD_DISCOUNT_PERIOD_END_DATE).getTime()}
+				{#if discountPeriodExpired}
 					<div class="flex flex-col items-center xl:items-start gap-4">
 						<span class="font-bold text-[32px] line-through">1500</span>
 						<div>
