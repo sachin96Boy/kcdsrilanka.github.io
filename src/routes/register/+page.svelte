@@ -6,6 +6,8 @@
 	import { loader, user, config } from '$store';
 	import { modal } from '$utils';
 
+	import tshirt from '$assets/images/merch/tshirt.png';
+
 	$: formData = {
 		name: '',
 		email: '',
@@ -32,7 +34,7 @@
 			if (data) {
 				window.location.href = '/';
 			} else {
-				document.getElementById('register-section').scrollIntoView({
+				document.getElementById('register-section')?.scrollIntoView({
 					behavior: 'smooth',
 					block: 'start'
 				});
@@ -93,6 +95,23 @@
 				started small—little choices made by designers—and later turned into norms used by the
 				industry.</BodyText
 			>
+			<div class="gradient-background-dark p-10">
+				<div class="flex flex-col bg-card border border-white/10 p-8 py-10 gap-5">
+					<div class="flex gap-5 mb-2 overflow-x-auto hide-scrollbar">
+						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm"/>
+						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm"/>
+						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm"/>
+					</div>
+					<Subheading>More from KCD Sri Lanka</Subheading>
+					<BodyText
+						>Did you ever notice your cursor is solid when you’re typing but blinking when you’re not,
+						and that is true in every text editor? There are hundreds of primitives in UI design that
+						started small—little choices made by designers—and later turned into norms used by the
+						industry.</BodyText
+					>
+					<Button variant="secondary" class="self-center xl:self-start mt-1">Shop Merch</Button>
+				</div>
+			</div>
 		</div>
 		<form class="flex-1 flex flex-col gap-y-5 -translate-y-5" on:submit={onSubmit}>
 			<Subheading class="my-6">General</Subheading>
