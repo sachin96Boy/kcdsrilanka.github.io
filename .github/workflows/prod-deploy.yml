@@ -12,6 +12,12 @@ jobs:
       - name: Checkout repository 🛎️
         uses: actions/checkout@v3
 
+      - name: Create .env file
+        run: |
+          echo "PUBLIC_FRONTEND_URL=${{ secrets.DEV_FRONTEND_URL}}" >> .env
+          echo "PUBLIC_SERVER_URL=${{ secrets.DEV_SERVER_URL}}" >> .env
+          echo "PUBLIC_FIREBASE_CONFIG=${{ secrets.DEV_FIREBASE_CONFIG}}" >> .env
+
       - name: Build 🏗️
         uses: ./.github/actions/build
 

@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	darkMode: 'class',
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+	],
 	theme: {
 		extend: {
 			colors: {
@@ -21,9 +25,13 @@ export default {
 				long: '500ms'
 			},
 			screens: {
-				xs: '400px'
+				'xs': '450px',
+				'xl-high': '1440px'
 			}
 		}
 	},
-	plugins: [require('tailwindcss-animate')]
+	plugins: [
+		require('tailwindcss-animate'),
+		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
+	]
 };

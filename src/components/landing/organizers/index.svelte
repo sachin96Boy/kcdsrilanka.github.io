@@ -1,6 +1,6 @@
 <script>
 	import { Heading } from '$components/common';
-	import Speaker from '$components/speakers/speaker.svelte';
+	import Speaker from '$components/landing/speakers/speaker.svelte';
 	import organizers from './data';
 </script>
 

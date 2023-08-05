@@ -17,6 +17,7 @@
 <svelte:head>
 	<title>KCDSL | 2023</title>
 	<meta name="description" content="Kubernetes Community Days Sri Lanka 2023" />
+	<script type="text/javascript" src="/payhere.js"></script>
 </svelte:head>
 
 <section>

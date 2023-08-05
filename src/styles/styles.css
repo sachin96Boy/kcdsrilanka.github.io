@@ -7,25 +7,40 @@
 
 @layer components {
 	.badge {
-		@apply flex flex-wrap items-center self-center xl:self-start xl:text-xl bg-badge px-5 py-2.5 rounded-[40px];
+		@apply flex flex-wrap gap-y-1 justify-center md:justify-start items-center self-center xl:self-start text-base md:xl:text-xl  text-center md:text-start bg-badge px-5 py-2.5 rounded-[40px];
+	}
+	.clock {
+		@apply !w-8 !h-8 md:!w-10 md:!h-10;
+	}
+	.btn-primary {
+		@apply flex justify-center items-center cursor-pointer rounded-[40px] px-[1.15rem] py-[0.4rem] bg-white text-xl text-purple transition-all duration-medium splash outline outline-transparent filter hover:bg-transparent hover:text-white hover:outline-white/60 hover:contrast-[2];
+	}
+	.btn-secondary {
+		@apply flex justify-center items-center cursor-pointer rounded-[40px] px-[1.15rem] py-[0.4rem] text-xl transition-all duration-medium splash outline filter hover:contrast-[2] bg-transparent outline-white/50 text-white/50 hover:text-white;
+	}
+	.typography-subheading {
+		@apply font-medium text-2xl md:text-3xl xl:text-[32px] text-white leading-8;
+	}
+	.typography-body {
+		@apply font-inter text-xl text-white/50 leading-8;
 	}
 }
 
 @layer utilities {
 	.m-section-container {
-		@apply mx-8 sm:mx-10 md:mx-12 lg:mx-20 xl:mx-28;
+		@apply mx-4 sm:mx-10 md:mx-12 lg:mx-16 xl-high:mx-28;
 	}
 	.p-section-container {
-		@apply m-section-container px-8 xl:px-10 2xl:px-14;
+		@apply m-section-container px-4 sm:px-8 xl:px-10 2xl:px-14;
 	}
 	.section-container {
-		@apply p-section-container border-x border-white/10
+		@apply p-section-container border-x border-white/10;
 	}
 	.gradient-background {
 		background: linear-gradient(0deg, #0d001b 0%, #5301a4 100%);
 	}
 	.gradient-background-dark {
-		background: linear-gradient(0deg, #000 0%, #37006C 100%);
+		background: linear-gradient(0deg, #000 0%, #37006c 100%);
 	}
 	.text-stroke {
 		color: white;
@@ -37,26 +52,38 @@
 		-webkit-text-fill-color: transparent;
 		-webkit-text-stroke: 1px;
 	}
+	.backdrop {
+		@apply bg-black/30 backdrop-blur-[8px];
+	}
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+	width: 12px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: black;
+	background: black !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+	background: white !important;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
 }
 
 html {
-  scrollbar-color: black white;
-  scrollbar-width: thin;
+	scrollbar-color: black white !important;
+	scrollbar-width: thin !important;
 }
 
-svg, svg *:focus {
-  outline: none !important;
+svg,
+svg *:focus {
+	outline: none !important;
+}
+
+.ph-loader, .ph-backdrop {
+	display: none !important;
+}
+
+.modal-backdrop {
+	overflow: hidden !important;
 }
