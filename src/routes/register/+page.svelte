@@ -7,7 +7,7 @@
 	import { modal, goto } from '$utils';
 
 	import tshirt from '$assets/images/merch/tshirt.png';
-	
+
 	$: formData = {
 		name: '',
 		email: '',
@@ -16,7 +16,6 @@
 		organization: '',
 		gender: '',
 		profession: '',
-		cv: '',
 		mealPreference: ''
 	};
 
@@ -27,19 +26,23 @@
 				formData.email = firebaseUser.email;
 			}
 		});
-	});
-
-	user.subscribe(({ data, fetched }) => {
-		if (fetched) {
-			if (data) {
-				goto("/")
-			} else {
-				document.getElementById('register-section')?.scrollIntoView({
-					behavior: 'smooth',
-					block: 'start'
-				});
-			}
-		}
+		user.subscribe(({ data, fetched }) => {
+			setTimeout(() => {
+				if (fetched) {
+					if (data) {
+						modal.show({
+							title: 'Already registered!',
+							body: 'You have already registered for KCDSL 2023.',
+							onClose: () => goto('/')
+						});
+					} else {
+						document.getElementById('register-section')?.scrollIntoView({
+							behavior: 'smooth'
+						});
+					}
+				}
+			}, 0);
+		});
 	});
 
 	config.subscribe(({ REGISTRATION_ENABLED }) => {
@@ -47,7 +50,7 @@
 			modal.show({
 				title: 'Registration closed!',
 				body: 'Sorry, we are not accepting any more registrations for KCDSL 2023.',
-				onClose: () => goto("/")
+				onClose: () => goto('/')
 			});
 		}
 	});
@@ -62,7 +65,7 @@
 					title: 'You have successfully registered!',
 					body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod quis viverra nibh cras pulvinar mattis nunc.',
 					actionText: 'Purchase Ticket',
-					onClose: () => goto("/?scroll=book-tickets")
+					onClose: () => goto('/?scroll=book-tickets')
 				});
 		});
 	};
@@ -81,7 +84,7 @@
 </svelte:head>
 
 <section>
-	<Hero />
+	<Hero animate={false} />
 	<SponsorMarquee />
 	<div
 		id="register-section"
@@ -98,16 +101,16 @@
 			<div class="gradient-background-dark p-10">
 				<div class="flex flex-col bg-card border border-white/10 p-8 py-10 gap-5">
 					<div class="flex gap-5 mb-2 overflow-x-auto hide-scrollbar">
-						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm"/>
-						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm"/>
-						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm"/>
+						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm" />
+						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm" />
+						<img alt="adobe" src={tshirt} class="flex-1 rounded-sm" />
 					</div>
 					<Subheading>More from KCD Sri Lanka</Subheading>
 					<BodyText
-						>Did you ever notice your cursor is solid when you’re typing but blinking when you’re not,
-						and that is true in every text editor? There are hundreds of primitives in UI design that
-						started small—little choices made by designers—and later turned into norms used by the
-						industry.</BodyText
+						>Did you ever notice your cursor is solid when you’re typing but blinking when you’re
+						not, and that is true in every text editor? There are hundreds of primitives in UI
+						design that started small—little choices made by designers—and later turned into norms
+						used by the industry.</BodyText
 					>
 					<Button variant="secondary" class="self-center xl:self-start mt-1">Shop Merch</Button>
 				</div>
@@ -199,11 +202,6 @@
 				placeholder="GitHub handle"
 				{onChange}
 			/>
-			<Input name="cv" value={formData.cv} placeholder="Resume URL" {onChange} />
-			<p class="mt-2 ml-5 text-white/40">
-				Note: If you wish to be contacted by recruiters you may add in a link to your CV. This field
-				is optional
-			</p>
 			<Subheading class="my-6">Extra</Subheading>
 			<DropdownInput
 				name="mealPreference"

@@ -24,15 +24,12 @@
 	const ticketDetails = getContext('ticket');
 </script>
 
-<header class="h-[90px] flex py-8 section-container border-none justify-between">
-	<div class="flex gap-5">
+<header class="h-[90px] flex py-8 section-container border-none justify-between" data-sveltekit-reload>
+	<a href="/" class="flex gap-5">
 		<KCD />
 		<CNCF />
-	</div>
-	<div
-		class="hidden xl-high:flex justify-center items-center gap-x-8 cursor-pointer"
-		data-sveltekit-reload
-	>
+	</a>
+	<div class="hidden xl-high:flex justify-center items-center gap-x-8 cursor-pointer">
 		<span class="text-xl text-white"> #KCDSL23 </span>
 		{#if location.pathname === '/register'}
 			<a href="/" class="text-xl text-white/60 hover:text-white transition-all duration-medium">

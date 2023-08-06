@@ -40,7 +40,7 @@
 		<Loader />
 		<Toast position="br" />
 		<Modal
-			background="bg-card border border-white/20 p-8 py-[40px]"
+			background="bg-black/90 backdrop-blur-md border border-white/20 p-8 py-[40px]"
 			buttonTextCancel="Close"
 			buttonNeutral="btn-secondary"
 			buttonPositive="btn-primary text-black"

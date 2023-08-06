@@ -21,12 +21,15 @@
 		onChange({ target: { name, value: value } });
 	};
 
+	const clickListener = (e) => {
+		if (e.target.id !== computedId) {
+			open = false;
+		}
+	};
+
 	onMount(() => {
-		document.addEventListener('click', (e) => {
-			if (e.target.id !== computedId) {
-				open = false;
-			}
-		});
+		document.addEventListener('click', clickListener);
+		return () => document.removeEventListener('click', clickListener);
 	});
 </script>
 
