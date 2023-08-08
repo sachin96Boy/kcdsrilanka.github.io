@@ -8,8 +8,7 @@
 		<div class="flex-1 flex flex-col gap-10 p-section-inner">
 			<Heading class="xl:w-3/4">Frequently Asked Questions</Heading>
 			<BodyText
-				>Lorem ipsum dolor sit amet, consectetur ascing elit. Dictum sollicitudin diam ac lorem cras
-				tellus faMorbi dictum ut sed pellentesque gravida id tristique.</BodyText
+				>Answers to your BIG questions about KCD Sri Lanka 2023. Still have a question? Feel free to reach out to us!</BodyText
 			>
 			<Button variant="secondary" class="self-center xl:self-start mt-12">Chat with us</Button>
 		</div>
